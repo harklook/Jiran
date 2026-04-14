@@ -1,0 +1,1569 @@
+/* =========================================================
+   Analytics Page — Bright SaaS (consistent with your site)
+   Changes:
+   - Overview merged (Hero + KPIs + Chart)
+   - KPIs become soft tiles (no heavy borders)
+   - Local price comparison becomes compact table-like list
+   - AI panel becomes visually dominant via subtle tint + spacing
+   - Less border fatigue, more spacing hierarchy
+========================================================= */
+
+.retail-page .avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: #eef2f7;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.retail-page.analytics-page {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+     Layout
+  ========================================================= */
+  .retail-page.analytics-page .analytics-layout {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  
+    min-height: calc(100vh - 86px);
+  
+    background:
+      radial-gradient(1100px 720px at 18% 16%, #eef6ff 0%, transparent 60%),
+      radial-gradient(920px 650px at 82% 36%, #e9fbf6 0%, transparent 55%),
+      linear-gradient(to bottom, #f8fbff, #ffffff);
+  }
+
+/* =========================================================
+     Panels
+  ========================================================= */
+.retail-page.analytics-page .panel-compact {
+  padding: 14px;
+}
+
+.retail-page.analytics-page .panel-head,
+.retail-page.analytics-page .overview-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.retail-page.analytics-page .panel-title h2,
+.retail-page.analytics-page .panel-title h3 {
+  margin: 0;
+}
+
+.retail-page.analytics-page .panel-title p {
+  margin-top: 6px;
+  color: var(--text-sub);
+}
+
+.retail-page.analytics-page .overview-actions {
+  display: flex;
+  align-items: center;
+}
+
+.retail-page.analytics-page .tiny-note {
+  font-size: 12px;
+  margin: -2px 0 10px;
+}
+
+/* =========================================================
+     Overview (Hero + KPIs + Chart merged)
+  ========================================================= */
+.retail-page.analytics-page .analytics-overview {
+  width: 100%;
+}
+
+.retail-page.analytics-page .overview-divider {
+  height: 1px;
+  width: 100%;
+  margin: 12px 0;
+  background: rgba(15, 23, 42, 0.10);
+}
+
+/* KPI tiles: same palette feel, just softer */
+/* ===== KPI GRID → 2 ROWS ===== */
+.retail-page.analytics-page .kpi-tiles {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 16px;
+margin-bottom: 15px;
+width: 100%;
+}
+
+/* ===== ML CATEGORY SEGMENTED TABS ===== */
+
+.ml-tab-container {
+display: flex;
+width: 100%;
+gap: 6px;
+background: #f1f5f9;
+padding: 6px;
+border-radius: 16px;
+margin-top: 4px;
+}
+
+/* Tab Button */
+.ml-tab-button {
+flex: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+padding: 10px 8px;
+border-radius: 10px;
+border: 1px solid transparent;
+background: transparent;
+cursor: pointer;
+position: relative;
+transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.ml-tab-button:hover {
+background: #ffffff;
+transform: translateY(-2px);
+box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.ml-tab-button.active {
+background: #ffffff;
+border-color: var(--ml-color);
+transform: translateY(-2px);
+box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.ml-tab-button.active::before {
+content: "";
+position: absolute;
+inset: 0;
+border-radius: 10px;
+background: var(--ml-bg);
+}
+
+/* Animated Indicator */
+.ml-indicator {
+width: 10px;
+height: 10px;
+border-radius: 3px;
+background: #cbd5e1;
+z-index: 2;
+transition: 0.3s ease;
+}
+
+.ml-tab-button.active .ml-indicator {
+background: var(--ml-color);
+box-shadow: 0 0 10px var(--ml-color);
+}
+
+/* Label */
+.ml-label {
+font-size: 0.75rem;
+font-weight: 800;
+color: #64748b;
+z-index: 2;
+}
+
+.ml-tab-button.active .ml-label {
+color: var(--ml-color);
+}
+
+/* Force tile consistency */
+.retail-page.analytics-page .kpi-tile {
+width: 100%;
+height: 100%;
+}
+
+@media (max-width: 1100px) {
+.retail-page.analytics-page .kpi-tiles {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 560px) {
+.retail-page.analytics-page .kpi-tiles {
+grid-template-columns: 1fr;
+}
+}
+
+/* ===== Pretty ML Category Dropdown ===== */
+.analytics-pretty-select {
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+
+padding: 10px 36px 10px 14px;
+border-radius: 12px;
+border: 1px solid rgba(15, 23, 42, 0.12);
+
+background:
+linear-gradient(180deg, #ffffff, #f8fafc) padding-box,
+linear-gradient(180deg, rgba(59,130,246,0.15), rgba(59,130,246,0.25)) border-box;
+
+font-size: 0.85rem;
+font-weight: 600;
+color: #1e293b;
+
+cursor: pointer;
+transition: all 0.25s ease;
+
+box-shadow:
+0 1px 2px rgba(0,0,0,0.04),
+inset 0 0 0 1px rgba(255,255,255,0.4);
+}
+
+/* Hover */
+.analytics-pretty-select:hover {
+border-color: rgba(59,130,246,0.4);
+background-color: #f1f5f9;
+}
+
+/* Focus */
+.analytics-pretty-select:focus {
+outline: none;
+border-color: #3b82f6;
+box-shadow:
+0 0 0 3px rgba(59,130,246,0.15),
+0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* Custom arrow */
+.analytics-pretty-select {
+background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+background-position: right 10px center;
+background-size: 14px;
+}
+
+.retail-page.analytics-page .kpi-tiles-primary {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.retail-page.analytics-page .kpi-tiles-secondary {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.retail-page.analytics-page .prediction-panel {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.retail-page.analytics-page .prediction-table {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.retail-page.analytics-page .prediction-table-head,
+.retail-page.analytics-page .prediction-table-row {
+  display: grid;
+  grid-template-columns: 2.2fr 0.9fr 0.9fr 0.8fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.retail-page.analytics-page .prediction-table-head {
+  padding: 0 16px 12px 16px;
+  border-bottom: 2px solid #f1f5f9;
+  color: #1e1f22;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.retail-page.analytics-page .prediction-table-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.retail-page.analytics-page .prediction-table-row {
+  padding: 16px;
+  border-bottom: 1px solid #f8fafc;
+}
+
+.retail-page.analytics-page .prediction-product {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.retail-page.analytics-page .kpi-tile {
+  width: 100%;
+}
+
+.retail-page.analytics-page .kpi-tile {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
+  min-width: 0;
+}
+
+.retail-page.analytics-page .kpi-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.retail-page.analytics-page .kpi-label {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--text-sub);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+
+/* ===== INVENTORY CLASSIFICATION DIVIDER ===== */
+.kpi-class-divider {
+text-align: center;
+font-size: 0.75rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: #64748b;
+padding: 8px 0;
+position: relative;
+}
+
+/* divider lines */
+.kpi-class-divider::before,
+.kpi-class-divider::after {
+content: "";
+position: absolute;
+top: 50%;
+width: 40%;
+height: 1px;
+background: rgba(15, 23, 42, 0.12);
+}
+
+.kpi-class-divider::before {
+left: 0;
+}
+
+.kpi-class-divider::after {
+right: 0;
+}
+
+.retail-page.analytics-page .kpi-value {
+  font-size: 24px;
+  font-weight: 950;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.retail-page.analytics-page .kpi-sub {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+/* Soft tones using your existing vibe (no new colors, just tiny tints) */
+.retail-page.analytics-page .tone-blue {
+  background: rgba(238, 246, 255, 0.95);
+}
+
+.retail-page.analytics-page .tone-slate {
+  background: rgba(248, 250, 252, 0.95);
+}
+
+.retail-page.analytics-page .tone-amber {
+  background: rgba(255, 247, 237, 0.95);
+}
+
+.retail-page.analytics-page .tone-purple {
+  background: rgba(245, 243, 255, 0.95);
+}
+
+/* =========================================================
+     Main grid
+  ========================================================= */
+.retail-page.analytics-page .analytics-main {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 14px;
+}
+
+.retail-page.analytics-page .analytics-left,
+.retail-page.analytics-page .analytics-right {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* =========================================================
+     Price comparison: table-like list (compact)
+  ========================================================= */
+.retail-page.analytics-page .price-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.retail-page.analytics-page .price-head {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 0.8fr 1fr;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(248, 250, 252, 0.6);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--text-sub);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.retail-page.analytics-page .price-tr {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 0.8fr 1fr;
+  gap: 10px;
+
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+.retail-page.analytics-page .price-td {
+  font-size: 13px;
+  color: var(--text-main);
+  min-width: 0;
+}
+
+.retail-page.analytics-page .price-td.product {
+  font-weight: 900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.retail-page.analytics-page .price-range {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.retail-page.analytics-page .price-ins {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+/* Keep your existing pill status colors */
+.retail-page.analytics-page .pill.higher {
+  background: rgba(245, 158, 11, 0.15);
+  color: #92400e;
+}
+
+.retail-page.analytics-page .pill.lower {
+  background: rgba(59, 130, 246, 0.14);
+  color: rgba(30, 64, 175, 0.95);
+}
+
+.retail-page.analytics-page .pill.competitive {
+  background: rgba(34, 197, 94, 0.15);
+  color: #166534;
+}
+
+/* =========================================================
+     Chart (unchanged style, just fits the overview)
+  ========================================================= */
+.retail-page.analytics-page .chart {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.retail-page.analytics-page .chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.retail-page.analytics-page .chart-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.retail-page.analytics-page .chart-row {
+  display: grid;
+  grid-template-columns: 1.2fr 2.2fr auto;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.retail-page.analytics-page .chart-label {
+  font-size: 13px;
+  color: var(--text-main);
+  font-weight: 800;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.retail-page.analytics-page .chart-bar {
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: rgba(248, 250, 252, 0.95);
+  overflow: hidden;
+}
+
+.retail-page.analytics-page .chart-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.22);
+}
+
+.retail-page.analytics-page .chart-val {
+  font-size: 12px;
+  color: var(--text-sub);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.retail-page.analytics-page .chart-foot {
+  font-size: 12px;
+}
+
+/* =========================================================
+     AI panel: more dominant, subtle tint, cleaner cards
+  ========================================================= */
+.retail-page.analytics-page .ai-panel {
+  background:
+    radial-gradient(900px 500px at 20% 0%, rgba(238, 246, 255, 0.55), transparent 60%),
+    radial-gradient(700px 450px at 90% 40%, rgba(233, 251, 246, 0.55), transparent 55%),
+    rgba(248, 250, 252, 0.95);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+.retail-page.analytics-page .ai-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.retail-page.analytics-page .ai-subhead {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--text-sub);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.retail-page.analytics-page .ai-divider {
+  height: 1px;
+  width: 100%;
+  margin: 12px 0;
+  background: rgba(15, 23, 42, 0.10);
+}
+
+.retail-page.analytics-page .ai-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Insight cards: reduced border fatigue */
+.retail-page.analytics-page .ins-card {
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.70);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.retail-page.analytics-page .ins-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.retail-page.analytics-page .ins-title {
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.retail-page.analytics-page .ins-main {
+  font-size: 15px;
+  font-weight: 950;
+  color: var(--text-main);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.retail-page.analytics-page .ins-sub {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-sub);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================================================
+     Responsive
+  ========================================================= */
+@media (max-width: 1100px) {
+  .retail-page.analytics-page .analytics-main {
+    grid-template-columns: 1fr;
+  }
+
+  .retail-page.analytics-page .kpi-tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .retail-page.analytics-page .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .retail-page.analytics-page .price-head {
+    display: none;
+  }
+
+  .retail-page.analytics-page .price-tr {
+    grid-template-columns: 1fr;
+  }
+
+  .retail-page.analytics-page .price-td {
+    font-size: 13px;
+  }
+
+  .retail-page.analytics-page .price-td.product {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 560px) {
+  .retail-page.analytics-page .kpi-tiles {
+    grid-template-columns: 1fr;
+  }
+
+  .retail-page.analytics-page .chart-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    align-items: start;
+  }
+}
+
+.chart-vertical-wrapper {
+  width: 100%;
+}
+
+.chart-vertical-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 1rem 0;
+  gap: 1.5rem;
+}
+
+.chart-vertical-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.chart-vertical-bar {
+  width: 36px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.chart-vertical-bar {
+  width: 36px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.chart-vertical-bar:hover {
+  transform: scaleY(1.05);
+}
+
+.chart-vertical-label {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.chart-vertical-value {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* Center KPI cards
+.kpi-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+} */
+
+/* Wrapper for vertical charts */
+.chart-vertical-wrapper {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Chart title + subtitle */
+.chart-vertical-wrapper h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.chart-vertical-wrapper p {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Scrollable bar container */
+.chart-vertical-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 1rem 0;
+  gap: 1.5rem;
+  align-items: flex-end;
+  /* Bars align to bottom */
+}
+
+/* Individual bar item */
+.chart-vertical-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+  cursor: pointer;
+}
+
+/* The vertical bar itself */
+.chart-vertical-bar {
+  width: 36px;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Optional: Add shadow to the bars */
+.chart-vertical-bar:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Label under bar */
+.chart-vertical-label {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  text-align: center;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* Value inside the label (formatted revenue) */
+.chart-vertical-value {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+/* Make the label a colored "button" reflecting stock level */
+.chart-vertical-label.clickable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.chart-vertical-label.clickable:hover {
+  transform: translateY(-2px);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Color coding for label based on stock */
+.chart-vertical-item[data-stock="Low"] .chart-vertical-label.clickable {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #b91c1c;
+}
+
+.chart-vertical-item[data-stock="Medium"] .chart-vertical-label.clickable {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #92400e;
+}
+
+.chart-vertical-item[data-stock="High"] .chart-vertical-label.clickable {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #065f46;
+}
+
+/* Ensure bars are visible */
+.chart-vertical-bar {
+  min-height: 60px;
+}
+
+.chart-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* header */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-header select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* chart */
+.stock-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  padding: 1rem 0;
+  height: 260px;
+  overflow-x: auto;
+}
+
+/* item */
+.stock-bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  /* fixed box width */
+}
+
+.stock-chart-container {
+  width: 100%;
+  /* Take full width of panel */
+  overflow-x: auto;
+  /* Allow horizontal scroll */
+  overflow-y: hidden;
+}
+
+.stock-chart-inner {
+  display: flex;
+  gap: 12px;
+  /* space between bars */
+  min-width: max-content;
+  /* keep all bars in one row */
+}
+
+.stock-chart::-webkit-scrollbar {
+  height: 8px;
+}
+
+.stock-chart::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+}
+
+.stock-chart::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.stock-chart.horizontal-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-behavior: smooth;
+}
+
+/* Hide default scrollbar for modern browsers (optional) */
+.stock-chart.horizontal-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.stock-chart.horizontal-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+/* BAR */
+.stock-bar {
+  width: 40px;
+  /* bar width */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-radius: 4px;
+  position: relative;
+}
+
+
+.stock-bar-item .stock-bar {
+  width: 100%;
+  /* full width of the box */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* VALUE */
+.bar-value {
+  font-size: 0.75rem;
+}
+
+/* DEMAND LINE */
+.demand-line {
+  position: absolute;
+  width: 60px;
+  height: 2px;
+  background: #111827;
+}
+
+/* LABEL */
+.stock-label {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.stock-label:hover {
+  text-decoration: underline;
+}
+
+.revenue-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.revenue-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.revenue-label {
+  width: 120px;
+  font-size: 0.9rem;
+}
+
+.revenue-bar-wrapper {
+  flex: 1;
+  background: #f3f4f6;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.revenue-bar {
+  padding: 0.4rem 0.6rem;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 999px;
+}
+
+.pie-container {
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+}
+
+.pie-chart {
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg);
+  /* keeps slices starting from top */
+}
+
+.pie-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pie-label {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.chart-card {
+  background: #f6f7f8;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure the charts row alignment matches your screenshot */
+.charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+/* Matching your Panel style */
+.chart-panel-card {
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Unified Card Style */
+.chart-empty-panel {
+  min-height: 350px;
+  background-color: #ffffff;
+  /* Matches your other panels */
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.empty-chart-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-color: #f8fafc;
+  /* The consistent grey theme background */
+  margin: 15px;
+  /* Inset from the panel edges */
+  border-radius: 8px;
+}
+
+/* The Dotted Circle for Revenue Pie Chart */
+.circular-dot {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px dotted #cbd5e0;
+  /* Grey dotted line */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+/* The Rectangular Dash for Stock Chart */
+.rect-dash {
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  border: 2px dashed #cbd5e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.empty-placeholder-text {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  max-width: 120px;
+  line-height: 1.4;
+}
+
+.stock-chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.stock-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  overflow-x: auto;
+  height: 100%;
+}
+
+.stock-bar {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.stock-bar:hover {
+  transform: scale(1.05);
+}
+
+.stock-fill-low {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #ef4444;
+  /* red */
+}
+
+.stock-fill-high {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: #10b981;
+  /* green */
+}
+
+.predicted-marker {
+  position: absolute;
+  top: -4px;
+  width: 2px;
+  height: 24px;
+  background: #111827;
+  z-index: 5;
+}
+
+.stock-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px;
+}
+
+.stock-bar-wrapper {
+  flex: 4;
+  background: #f3f4f6;
+  border-radius: 999px;
+  height: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-value {
+  color: white;
+  font-size: 0.75rem;
+  /* margin-bottom: 100px; */
+}
+
+
+.stock-label {
+  flex: 3;
+  /* 3/7 of space */
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+
+.demand-line-global {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 2px dashed #9CA3AF;
+}
+
+.pie-chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pie-chart-container {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 240px;
+  margin-top: 1rem;
+}
+
+.pie-legend-item.hovered {
+  background: rgba(99, 102, 241, 0.1);
+  /* soft glow for hover */
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.pie-legend-item {
+  display: flex;
+  align-items: center;
+}
+
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  gap: 12px;
+  /* space between bars */
+  scrollbar-width: thin;
+}
+
+.fixed-box {
+  flex: 0 0 80px;
+  /* fixed width per product */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subtle-select {
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.subtle-select:hover {
+  border-color: #cbd5e1;
+  background-color: #f8fafc;
+}
+
+.subtle-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  ring: 2px rgba(59, 130, 246, 0.1);
+}
+
+/* Container */
+.intelligence-widget {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Tabs Container */
+.abc-tab-container {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  background: #f1f5f9;
+  padding: 6px;
+  border-radius: 16px;
+}
+
+/* Individual Buttons */
+.abc-tab-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover State: Soft lift and tint */
+.abc-tab-button:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.abc-tab-button.active {
+  background: #ffffff;
+  border-color: var(--brand-color);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Optional: Subtle background tint when active */
+.abc-tab-button.active::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--brand-bg);
+  pointer-events: none;
+}
+
+.abc-tab-button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Tiny dot indicator */
+.tab-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background-color: #cbd5e1;
+  /* Neutral when inactive */
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.abc-tab-button.active .tab-indicator {
+  background-color: var(--brand-color);
+  box-shadow: 0 0 10px var(--brand-color);
+}
+
+/* Text Styles */
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  z-index: 2;
+}
+
+.tab-label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #64748b;
+  transition: color 0.3s ease;
+}
+
+.abc-tab-button.active .tab-label {
+  color: var(--brand-color);
+}
+
+.tab-desc {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+/* --- Table Headers (Minimalist, No Card Look) --- */
+.intel-table-header {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1.2fr 1fr;
+  padding: 0 16px 12px 16px;
+  border-bottom: 2px solid #f1f5f9;
+  color: #1e1f22;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  /* Gives it a "Pro" data look */
+}
+
+.intel-row {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1.2fr 1fr;
+  padding: 16px;
+  align-items: center;
+  border-bottom: 1px solid #f8fafc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.intel-row:hover {
+  background-color: #f8fafc;
+  padding-left: 20px;
+  /* Subtle slide effect on hover */
+}
+
+.product-name {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+Force both Analytics cards to fixed height + internal scrolling
+========================================================= */
+.retail-page.analytics-page .product-table-panel,
+.retail-page.analytics-page .ai-panel {
+  height: 2500px;
+  min-height: 500px;
+  max-height: 700px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.retail-page.analytics-page .product-table-panel .intelligence-widget {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.retail-page.analytics-page .product-table-panel .intel-table-wrapper {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.retail-page.analytics-page .product-table-panel .intel-table-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.retail-page.analytics-page .product-table-panel .intel-table-body::-webkit-scrollbar,
+.retail-page.analytics-page .ai-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.retail-page.analytics-page .product-table-panel .intel-table-body::-webkit-scrollbar-thumb,
+.retail-page.analytics-page .ai-panel::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.18);
+  border-radius: 999px;
+}
+
+.retail-page.analytics-page .ai-panel {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+/* ===== TRANSFER PANEL FULL WIDTH ===== */
+
+.transfer-panel {
+width: 100%;
+margin-top: 18px;
+}
+
+/* Table Layout */
+.transfer-table {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+/* Header */
+.transfer-head,
+.transfer-row {
+display: grid;
+grid-template-columns: 2fr 1fr 0.8fr 1fr 1fr 1fr 1.2fr;
+gap: 12px;
+align-items: center;
+}
+
+.transfer-head {
+padding: 12px 16px;
+border-bottom: 2px solid #f1f5f9;
+font-size: 0.8rem;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+}
+
+/* Row */
+.transfer-row {
+padding: 14px 16px;
+border-bottom: 1px solid #f8fafc;
+background: rgba(248,250,252,0.7);
+border-radius: 14px;
+}
+
+.tx-product {
+font-weight: 800;
+color: #1e293b;
+}
+
+/* ===== Analytics Sub Navigation ===== */
+
+.analytics-subnav {
+display: flex;
+gap: 8px;
+background: #f1f5f9;
+padding: 6px;
+border-radius: 16px;
+margin-bottom: 14px;
+}
+
+.analytics-subtab {
+flex: 1;
+padding: 10px 14px;
+border-radius: 12px;
+border: 1px solid transparent;
+background: transparent;
+font-size: 0.75rem;
+font-weight: 800;
+cursor: pointer;
+color: #64748b;
+transition: all 0.25s ease;
+}
+
+.analytics-subtab:hover {
+background: #ffffff;
+transform: translateY(-2px);
+}
+
+.analytics-subtab.active {
+background: #ffffff;
+border-color: #3b82f6;
+color: #3b82f6;
+box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}

@@ -1,0 +1,438 @@
+/* =========================================================
+   SETTINGS (Retail Theme)
+   Depends on RetailDashboard.css for vars/topbar/panel/btn/table
+========================================================= */
+
+/* Main 2-column layout (same proportions as your screenshot) */
+.retail-page .settings-layout {
+  display: block;
+}
+
+.panel {
+  width: 100%;
+  max-width: none; /* Remove any existing width restrictions */
+  padding: 32px; /* Add extra padding so the text doesn't hit the edges */
+}
+
+.retail-page .settings-left,
+.retail-page .settings-right {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Sticky right column like the screenshot */
+.retail-page .settings-right {
+  position: sticky;
+  top: 102px;
+}
+
+/* Forms (match your existing vibe) */
+.retail-page .form {
+  display: grid;
+  gap: 12px;
+}
+
+.retail-page .grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.retail-page .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.retail-page .field label {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--text-sub);
+}
+
+/* Inputs */
+/* Read-only inputs (Store ID, Email, Location, etc.) */
+.retail-page .input[readonly] {
+  background: #f3f4f6; /* light grey */
+  border-color: rgba(15, 23, 42, 0.08);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* Prevent focus glow on read-only fields */
+.retail-page .input[readonly]:focus {
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: none;
+}
+
+.retail-page .save-msg {
+  margin-top: 10px;
+  color: var(--text-sub);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* Toggles */
+.retail-page .toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.retail-page .toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(248, 250, 252, 0.95);
+}
+
+.retail-page .toggle-text {
+  min-width: 0;
+  flex: 1 1 280px;
+}
+
+.retail-page .toggle-title {
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.retail-page .toggle-sub {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.4;
+}
+
+/* Switch */
+.retail-page .switch {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  flex: 0 0 auto;
+}
+
+.retail-page .switch input {
+  display: none;
+}
+
+.retail-page .slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.1);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.retail-page .slider::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.retail-page .switch input:checked + .slider {
+  background: rgba(37, 99, 235, 0.22);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.retail-page .switch input:checked + .slider::after {
+  transform: translate(20px, -50%);
+}
+
+/* Users table: Settings only needs 4 columns (not the 6-column inventory table) */
+.retail-page .settings-users-table .thead,
+.retail-page .settings-users-table .trow {
+  grid-template-columns: 2.5fr 1fr 1fr 1fr;
+}
+
+/* User cell styling */
+.retail-page .usercell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.retail-page .avatar{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  background:#eef2f7;
+  border:1px solid rgba(15,23,42,0.08);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius:12px;
+}
+
+.retail-page .usertext {
+  min-width: 0;
+}
+
+.retail-page .uname {
+  font-weight: 900;
+  font-size: 14px;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.retail-page .usub {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .retail-page .settings-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .retail-page .settings-right {
+    position: relative;
+    top: 0;
+  }
+
+  .retail-page .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.toggles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.toggle-card {
+  padding: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* Variable passed from React */
+  background-color: var(--card-color);
+  opacity: 0.6; /* Lower strength when inactive */
+}
+
+.toggle-card.active {
+  opacity: 1; /* Full strength when active */
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Modal styles following your existing class pattern */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Update these specific sections in Settings.css */
+
+/* Settings.css */
+
+.modal-card {
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  width: 95%;
+  max-width: 650px; /* Increased from 400px */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* Fix for the password eye icon alignment */
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Password Field Wrapper */
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.password-input-wrapper .input {
+    padding-right: 45px !important; /* Space so text doesn't go under icon */
+    width: 100%;
+}
+/* Styled Show/Hide Button */
+.password-toggle-btn {
+    position: absolute;
+    right: 12px; /* Positioned inside the input */
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transition: opacity 0.2s;
+}
+
+.password-toggle-btn:hover {
+    opacity: 0.7;
+}
+
+/* Redesigned Rules Box */
+.password-rules-container {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.rule-item {
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.rule-invalid { color: #94a3b8; }
+.rule-valid { color: #10b981; font-weight: 600; }
+
+.validation-error-msg {
+    background: #fef2f2;
+    color: #dc2626;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    border: 1px solid #fee2e2;
+}
+
+/* Ensure buttons are pill-shaped per image_fbf75c */
+.modal-actions .btn {
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 700;
+}
+
+/* Ensure the grid actually splits into two columns when there is space */
+.retail-page .grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Responsive fix: keep it 1 column on mobile */
+@media (max-width: 600px) {
+  .retail-page .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* The Ghost Button Base */
+.btn-ghost {
+  background-color: transparent;
+  color: #64748b; /* Slate-500: Professional neutral color */
+  border: 1px solid #e2e8f0; /* Soft border */
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover State: Slight background tint and darker text */
+.btn-ghost:hover {
+  background-color: #f1f5f9; /* Very light slate */
+  color: #0f172a; /* Dark slate */
+  border-color: #cbd5e1;
+}
+
+/* Active State: The "pressed" look */
+.btn-ghost:active {
+  transform: scale(0.97);
+  background-color: #e2e8f0;
+}
+
+/* Disabled State */
+.btn-ghost:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: transparent;
+}
+
+/* Optional: Danger variation for the Modal */
+.btn-danger {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #dc2626;
+  color: white;
+}

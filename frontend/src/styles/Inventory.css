@@ -1,0 +1,609 @@
+/* =========================================================
+   INVENTORY — Styles for Inventory.jsx
+   File: src/styles/Inventory.css
+   Scoped to .retail-page
+========================================================= */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(255,255,255,0.86);
+    backdrop-filter: blur(10px);
+}
+
+.inventory-layout {
+  padding: var(--pad);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background:
+  radial-gradient(1100px 720px at 18% 16%, #eef6ff 0%, transparent 60%),
+  radial-gradient(920px 650px at 82% 36%, #e9fbf6 0%, transparent 55%),
+  linear-gradient(to bottom, #f8fbff, #ffffff);
+}
+
+.panel{
+    background-color: #eef2f7;
+    margin-bottom: 10px;
+}
+
+.retail-page .avatar{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  background:#eef2f7;
+  border:1px solid rgba(15,23,42,0.08);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius:12px;
+}
+/* =========================================================
+   Inventory hero row (title left + actions, stats right)
+   Goal: stats boxes stretch to full height of this card
+========================================================= */
+.retail-page .inv-hero {
+    display: flex;
+    align-items: stretch;
+    /* key for equal-height columns */
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Left column stacks title + actions and defines overall height */
+.retail-page .inv-left {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1 1 auto;
+    min-width: 320px;
+}
+
+/* Stats column stretches to match left column height */
+.retail-page .inv-stats {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+    /* key for equal-height stat boxes */
+    justify-content: flex-end;
+    align-self: stretch;
+    /* extra guarantee */
+}
+
+/* Each stat box stretches and keeps content centered */
+.retail-page .inv-stat {
+    width: 96px;
+    border-radius: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    padding: 10px 12px;
+    text-align: center;
+    background: rgba(248, 250, 252, 0.95);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    /* key */
+}
+
+.retail-page .inv-stat-num {
+    font-size: 20px;
+    font-weight: 950;
+    letter-spacing: -0.3px;
+    color: var(--text-main);
+    line-height: 1.1;
+}
+
+.retail-page .inv-stat-label {
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--text-sub);
+}
+
+/* green / yellow / red */
+.retail-page .inv-stat.ok {
+    border-color: rgba(34, 197, 94, 0.30);
+    background: rgba(34, 197, 94, 0.10);
+}
+
+.retail-page .inv-stat.warn {
+    border-color: rgba(245, 158, 11, 0.35);
+    background: rgba(245, 158, 11, 0.14);
+}
+
+.retail-page .inv-stat.bad {
+    border-color: rgba(239, 68, 68, 0.35);
+    background: rgba(239, 68, 68, 0.12);
+}
+
+/* =========================================================
+     Filters bar
+  ========================================================= */
+.retail-page .filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.retail-page .search,
+.retail-page .select {
+    font-size: 14px;
+    padding: 12px 5px;
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: #ffffff;
+    outline: none;
+    color: var(--text-main);
+}
+
+.retail-page .search {
+    min-width: 240px;
+}
+
+.retail-page .search:focus {
+    border-color: rgba(37, 99, 235, 0.45);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
+}
+
+.retail-page .select:focus {
+    border-color: rgba(37, 99, 235, 0.45);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+}
+
+/* =========================================================
+     Table + rows
+     Columns: Product | Category | Price | Status
+  ========================================================= */
+.retail-page .table {
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.retail-page .thead,
+.retail-page .trow {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 0.8fr 1fr;
+    gap: 12px;
+    align-items: center;
+}
+
+.retail-page .thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: rgba(37, 99, 235, 0.06);
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--text-sub);
+}
+
+.retail-page .trow {
+    padding: 14px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    font-size: 14px;
+    color: var(--text-main);
+    background: #fff;
+}
+
+.retail-page .trow:last-child {
+    border-bottom: 0;
+}
+
+.retail-page .trow:hover {
+    background: rgba(248, 250, 252, 0.70);
+}
+
+.retail-page .cell-mono {
+    font-variant-numeric: tabular-nums;
+}
+
+.retail-page .cell-clip {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* When row is a single message (loading/empty) */
+.retail-page .trow.trow-single {
+    grid-template-columns: 1fr;
+}
+
+.retail-page .trow.trow-single>div {
+    grid-column: 1 / -1;
+}
+
+/* Product cell */
+.retail-page .prod {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.retail-page .thumb {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    font-size: x-large;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary), #22c55e);
+    opacity: 0.88;
+    /* border: 1px solid rgba(37, 99, 235, 0.20); */
+    flex: 0 0 auto;
+}
+
+.retail-page .prod-text {
+    min-width: 0;
+}
+
+.retail-page .prod-name {
+    font-weight: 900;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+}
+
+.retail-page .prod-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =========================================================
+     Hero actions (import/connect/sync/add)
+  ========================================================= */
+.import-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.action-row {
+  display: inline-flex;          /* keep row as compact as its contents */
+  align-items: center;
+  gap: 10px;                     /* small gap between buttons */
+}
+
+.action-row .btn {
+  width: auto;
+  flex: 0 0 auto;  /* don’t grow */
+}
+
+.action-col {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.import-hint {
+    margin-top: 4px;
+    font-size: 12px;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* =========================================================
+     NEW: Import Data menu card
+  ========================================================= */
+.import-menu-wrap {
+    position: relative;
+}
+
+.import-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: min(320px, 82vw);
+    z-index: 50;
+
+    border-radius: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 18px 50px rgba(2, 6, 23, 0.18);
+
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.import-menu-title {
+    font-size: 13px;
+    font-weight: 950;
+    color: var(--text-main);
+    letter-spacing: -0.2px;
+}
+
+.import-menu .btn {
+    width: 100%;
+}
+
+.import-menu-foot {
+    margin-top: 2px;
+    font-size: 12px;
+    color: #6b7280;
+    text-align: left;
+    line-height: 1.35;
+}
+
+/* =========================================================
+     Scrollable body (Inventory rows)
+  ========================================================= */
+.retail-page .inventory-scroll {
+    max-height: 460px;
+    overflow-y: auto;
+}
+
+.retail-page .inventory-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.retail-page .inventory-scroll::-webkit-scrollbar-thumb {
+    background: rgba(15, 23, 42, 0.18);
+    border-radius: 6px;
+}
+
+/* =========================================================
+     Modal + form (ProductModal + ConnectPOSModal)
+  ========================================================= */
+.retail-page .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: rgba(2, 6, 23, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.retail-page .modal {
+    width: min(720px, 96vw);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 30px 90px rgba(2, 6, 23, 0.40);
+    overflow: hidden;
+}
+
+.retail-page .modal-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 18px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+.retail-page .modal-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--text-main);
+}
+
+.retail-page .modal-sub {
+    margin: 6px 0 0;
+    color: var(--text-sub);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.retail-page .iconbtn {
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: rgba(248, 250, 252, 0.95);
+    color: var(--text-main);
+    border-radius: 12px;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.retail-page .form {
+    padding: 18px;
+}
+
+.retail-page .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.retail-page .grid2.tight {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.retail-page .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.retail-page .label {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--text-sub);
+}
+
+.retail-page .field input,
+.retail-page .field select,
+.retail-page .field textarea {
+    font-size: 14px;
+    padding: 12px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: #ffffff;
+    outline: none;
+    color: var(--text-main);
+}
+
+.retail-page .field textarea {
+    resize: vertical;
+    min-height: 86px;
+}
+
+.retail-page .field input:focus,
+.retail-page .field select:focus,
+.retail-page .field textarea:focus {
+    border-color: rgba(37, 99, 235, 0.45);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+}
+
+.retail-page .field input.invalid,
+.retail-page .field select.invalid,
+.retail-page .field textarea.invalid {
+    border-color: rgba(239, 68, 68, 0.45);
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12);
+}
+
+.retail-page .category-new {
+    margin-top: 10px;
+}
+
+.retail-page .error {
+    color: rgba(160, 30, 30, 0.95);
+    font-weight: 800;
+    font-size: 12px;
+}
+
+.retail-page .modal-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* =========================================================
+     Responsive (Inventory-specific)
+  ========================================================= */
+@media (max-width: 1100px) {
+    .retail-page .grid2 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Product | Price */
+.retail-page .thead,
+.retail-page .trow {
+    grid-template-columns: 2.2fr 1fr;
+}
+
+/* hide Category + Quantity + Status */
+.retail-page .thead > :nth-child(2),
+.retail-page .thead > :nth-child(4),
+.retail-page .thead > :nth-child(5),
+.retail-page .trow > :nth-child(2),
+.retail-page .trow > :nth-child(4),
+.retail-page .trow > :nth-child(5) {
+    display: none;
+}
+
+}
+
+@media (max-width: 560px) {
+    .retail-page .search {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .retail-page .select {
+        width: 100%;
+    }
+
+    .retail-page .inv-stat {
+        width: 90px;
+    }
+}
+
+/* =========================================================
+   NEW: Inventory / Orders tabs
+========================================================= */
+.retail-page .inv-tabs {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.retail-page .inv-tab {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(248, 250, 252, 0.95);
+  color: var(--text-main);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-weight: 950;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.retail-page .inv-tab:hover {
+  background: rgba(248, 250, 252, 1);
+}
+
+.retail-page .inv-tab.active {
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.10);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.10);
+}
+
+/* =========================================================
+   NEW: Orders table grid (5 columns)
+   Columns: Order Time | Status | Source | Total | Actions
+========================================================= */
+.retail-page .table.table-orders .thead,
+.retail-page .table.table-orders .trow {
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr auto;
+}
+
+.retail-page .cell-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* =========================================================
+   NEW: Order items table grid (inside modal)
+   Columns: Item | Quantity | Total
+========================================================= */
+.retail-page .table.table-order-items .thead,
+.retail-page .table.table-order-items .trow {
+  grid-template-columns: 2fr 0.8fr 1fr;
+}
+
+/* =========================================================
+   Responsive tweaks for Orders table
+========================================================= */
+@media (max-width: 1100px) {
+  .retail-page .table.table-orders .thead,
+  .retail-page .table.table-orders .trow {
+    grid-template-columns: 1.6fr 1.2fr auto; /* time | total | details */
+  }
+
+  /* hide Status + Source */
+  .retail-page .table.table-orders .thead > :nth-child(2),
+  .retail-page .table.table-orders .thead > :nth-child(3),
+  .retail-page .table.table-orders .trow > :nth-child(2),
+  .retail-page .table.table-orders .trow > :nth-child(3) {
+    display: none;
+  }
+}

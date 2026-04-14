@@ -1,0 +1,560 @@
+/* src/styles/Login.css */
+/* =========================================================
+   JIRAN — AUTH (LOGIN / SIGNUP)
+   Bright SaaS, full-screen
+========================================================= */
+
+/* ===== ROOT ===== */
+:root {
+  --bg-main: #ffffff;
+  --bg-soft: #f8fafc;
+
+  --text-main: #0f172a;
+  --text-sub: #475569;
+  --text-muted: #64748b;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+
+  --border-soft: #e5e7eb;
+  --shadow-soft: 0 20px 50px rgba(15, 23, 42, 0.15);
+
+  --radius-xl: 22px;
+  --radius-lg: 16px;
+}
+
+/* =========================================================
+   PAGE BACKGROUND
+========================================================= */
+
+.auth-bg {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  background:
+    radial-gradient(1200px 800px at 20% 20%, #eef6ff 0%, transparent 60%),
+    radial-gradient(900px 700px at 80% 40%, #e9fbf6 0%, transparent 55%),
+    linear-gradient(to bottom, #f8fbff, #ffffff);
+
+  color: var(--text-main);
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.auth-bg .navbar {
+  height: 64px;
+  padding: 0 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.auth-bg .navbar a {
+  text-decoration: none;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+}
+
+.nav-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.nav-right {
+  display: flex;
+  gap: 12px;
+}
+
+.auth-bg .nav-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.75);
+
+  color: var(--text-main);
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.auth-bg .nav-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+}
+
+.auth-bg .nav-btn.primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.auth-bg .nav-btn.primary:hover {
+  background: var(--primary-hover);
+}
+
+/* =========================================================
+   AUTH MAIN
+========================================================= */
+
+.auth-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* =========================================================
+   AUTH CARD
+========================================================= */
+
+.auth-container {
+  width: 100%;
+  max-width: 550px;
+
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: var(--radius-xl);
+
+  padding: 32px 28px;
+  box-shadow: var(--shadow-soft);
+
+  text-align: center;
+}
+
+.auth-container h2 {
+  margin-bottom: 22px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.auth-container input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  background: #ffffff;
+
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.auth-container input::placeholder {
+  color: var(--text-muted);
+}
+
+.auth-container input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
+}
+
+/* =========================================================
+   PRIMARY BUTTON (base)
+========================================================= */
+
+.auth-container button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 6px;
+
+  border-radius: 14px;
+  border: none;
+
+  background: var(--primary);
+  color: #ffffff;
+
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
+}
+
+.auth-container button:hover {
+  background: var(--primary-hover);
+}
+
+.auth-container button:active {
+  transform: translateY(1px);
+}
+
+/* =========================================================
+   TOGGLE TEXT
+========================================================= */
+
+.auth-toggle {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  cursor: pointer;
+}
+
+.auth-toggle:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.auth-error {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #dc2626;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.auth-bg .footer {
+  padding: 20px;
+  text-align: center;
+  background: transparent;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.footer-links a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   SIGNUP ONLY
+========================================================= */
+
+.signup-container {
+  padding: 24px 22px;
+  max-width: 560px;
+}
+
+.signup-container h2 {
+  margin-bottom: 14px;
+}
+
+.signup-container input {
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.signup-container > form > button {
+  margin-top: 14px;
+}
+
+.auth-step-pill {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-sub);
+  margin-bottom: 10px;
+}
+
+.auth-section {
+  text-align: left;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.auth-section-title {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.auth-help-text {
+  display: block;
+  margin-top: 8px;
+  opacity: 0.85;
+  color: var(--text-sub);
+  font-size: 0.85rem;
+}
+
+/* Step 2 buttons */
+.auth-row-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.auth-row-buttons button {
+  margin-top: 0;
+}
+
+.auth-btn-secondary {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-main);
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+/* =========================================================
+   LOCATION SUGGESTIONS
+========================================================= */
+
+.location-suggestions-wrap {
+  position: relative;
+}
+
+.location-suggestions-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 9999;
+
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.location-suggestions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.location-suggestions li {
+  padding: 10px 12px;
+  cursor: pointer;
+  color: var(--text-main);
+  background: transparent;
+}
+
+.location-suggestions li:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* =========================================================
+   PASSWORD FIELD (eye inside input)
+========================================================= */
+
+.password-field {
+  position: relative;
+}
+
+/* Ensure input stays under the button and has space for it */
+.password-field input {
+  padding-right: 52px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Eye button: inside input, right side, no background, no click dip */
+.auth-container .password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+
+  /* optical centering with text */
+  transform: translateY(-62%);
+
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  background: transparent;
+  box-shadow: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+
+  opacity: 0.6;
+  z-index: 2;
+
+  /* no movement animation */
+  transition: opacity 0.15s ease;
+}
+
+/* Ensure it never “drops” on click even with global button:active */
+.auth-container .password-toggle:active {
+  transform: translateY(-52%);
+}
+
+.auth-container .password-toggle:hover {
+  opacity: 1;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+  .auth-container {
+    padding: 26px 20px;
+  }
+
+  .signup-container {
+    padding: 22px 18px;
+  }
+
+  .nav-title {
+    display: none;
+  }
+
+  .auth-row-buttons {
+    flex-direction: column;
+  }
+}
+
+/* inside Login.css or Signup.css */
+.leaflet-container {
+  height: 300px;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Current location button */
+.location-current-btn button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f0f0f0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, border-color 0.2s;
+}
+.location-current-btn button:hover {
+  background: #e0e0e0;
+  border-color: #999;
+}
+
+/* OR separator */
+.location-or-separator {
+  text-align: center;
+  margin: 12px 0;
+  position: relative;
+  font-weight: bold;
+  color: #555;
+}
+.location-or-separator::before,
+.location-or-separator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ccc;
+}
+.location-or-separator::before {
+  left: 0;
+}
+.location-or-separator::after {
+  right: 0;
+}
+.location-or-separator span {
+  display: inline-block;
+  background: #fff;
+  padding: 0 8px;
+}
+
+/* Location input fields */
+.location-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.location-inputs input {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.location-inputs input:focus {
+  outline: none;
+  border-color: #4f46e5; /* indigo focus */
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.location-fields-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.location-fields-row .field-group {
+  flex: 1; /* Makes all three boxes equal width */
+  display: flex;
+  flex-direction: column;
+}
+
+.location-fields-row label {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}

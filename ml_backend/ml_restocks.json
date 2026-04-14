@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "source_files": {
+      "inventory": "/Users/muhammadabdulmohsin/Downloads/v_inventory_snapshot.json",
+      "products": "/Users/muhammadabdulmohsin/Downloads/v_store_products.json",
+      "transactions": "/Users/muhammadabdulmohsin/Downloads/v_store_transactions.json"
+    },
+    "row_counts": {
+      "inventory_rows": 1305,
+      "product_rows": 1305,
+      "transaction_rows": 3509,
+      "model_input_rows": 1305
+    },
+    "unique_counts": {
+      "inventory_pairs": 1305,
+      "product_pairs": 1305,
+      "transaction_pairs": 105,
+      "stores_in_output": 24,
+      "products_in_output": 1305
+    },
+    "mapping_checks": {
+      "inventory_without_product": 0,
+      "product_without_inventory": 0,
+      "transaction_pairs_without_product": 0
+    },
+    "transaction_window": {
+      "min_timestamp": "2026-04-12T19:04:47.808000+00:00",
+      "max_timestamp": "2026-04-13T19:19:52.971000+00:00"
+    },
+    "model_category_coverage": {
+      "known_categories": [
+        "bakery",
+        "beverages",
+        "dairy",
+        "frozen",
+        "meat",
+        "pantry",
+        "produce",
+        "snacks"
+      ],
+      "unknown_categories_in_products": {
+        "household": 174,
+        "personal care": 125,
+        "electronics": 93
+      }
+    }
+  },
+  "summary": {
+    "prediction_count": 1305,
+    "transfer_count": 85,
+    "restock_count": 11
+  },
+  "restocks": [
+    {
+      "store_id": "MM-RT-040",
+      "product_id": "premium pasta (pack) [x]",
+      "product_name": "Premium Pasta (Pack) [X]",
+      "restock_qty": 152,
+      "current_stock": 23.0,
+      "target_stock": 198.0,
+      "demand_30d": 132.0,
+      "reason": "Donor network insufficient \u2014 partial restock needed"
+    },
+    {
+      "store_id": "MM-RT-040",
+      "product_id": "organic eggs (dozen) [x]",
+      "product_name": "Organic Eggs (Dozen) [X]",
+      "restock_qty": 112,
+      "current_stock": 39.0,
+      "target_stock": 190.5,
+      "demand_30d": 127.0,
+      "reason": "Donor network insufficient \u2014 partial restock needed"
+    },
+    {
+      "store_id": "MM-RT-063",
+      "product_id": "value nuts (1kg)",
+      "product_name": "Value Nuts (1kg)",
+      "restock_qty": 62,
+      "current_stock": 109.0,
+      "target_stock": 349.5,
+      "demand_30d": 233.0,
+      "reason": "Donor network insufficient \u2014 partial restock needed"
+    },
+    {
+      "store_id": "MM-RT-063",
+      "product_id": "premium frozen pizza (500ml) [x]",
+      "product_name": "Premium Frozen Pizza (500ml) [X]",
+      "restock_qty": 210,
+      "current_stock": 75.0,
+      "target_stock": 285.0,
+      "demand_30d": 190.0,
+      "reason": "No donor stores available \u2014 order from supplier"
+    },
+    {
+      "store_id": "MM-RT-063",
+      "product_id": "deluxe biscuits (box) [x]",
+      "product_name": "Deluxe Biscuits (Box) [X]",
+      "restock_qty": 298,
+      "current_stock": 77.0,
+      "target_stock": 375.0,
+      "demand_30d": 250.0,
+      "reason": "No donor stores available \u2014 order from supplier"
+    },
+    {
+      "store_id": "MM-RT-063",
+      "product_id": "classic ice cream (500ml) [x]",
+      "product_name": "Classic Ice Cream (500ml) [X]",
+      "restock_qty": 290,
+      "current_stock": 106.0,
+      "target_stock": 396.0,
+      "demand_30d": 264.0,
+      "reason": "No donor stores available \u2014 order from supplier"
+    },
+    {
+      "store_id": "MM-RT-063",
+      "product_id": "deluxe frozen pizza (box) [x]",
+      "product_name": "Deluxe Frozen Pizza (Box) [X]",
+      "restock_qty": 295,
+      "current_stock": 128.0,
+      "target_stock": 423.0,
+      "demand_30d": 282.0,
+      "reason": "No donor stores available \u2014 order from supplier"
+    },
+    {
+      "store_id": "MM-RT-063",
+      "product_id": "extra chips (jar) [x]",
+      "product_name": "Extra Chips (Jar) [X]",
+      "restock_qty": 172,
+      "current_stock": 112.0,
+      "target_stock": 283.5,
+      "demand_30d": 189.0,
+      "reason": "No donor stores available \u2014 order from supplier"
+    },
+    {
+      "store_id": "MM-RT-063",
+      "product_id": "premium cheese (pack) [x]",
+      "product_name": "Premium Cheese (Pack) [X]",
+      "restock_qty": 442,
+      "current_stock": 26.0,
+      "target_stock": 468.0,
+      "demand_30d": 312.0,
+      "reason": "No donor stores available \u2014 order from supplier"
+    },
+    {
+      "store_id": "MM-RT-063",
+      "product_id": "organic apples (jar) [x]",
+      "product_name": "Organic Apples (Jar) [X]",
+      "restock_qty": 362,
+      "current_stock": 126.0,
+      "target_stock": 487.5,
+      "demand_30d": 325.0,
+      "reason": "No donor stores available \u2014 order from supplier"
+    },
+    {
+      "store_id": "MM-RT-063",
+      "product_id": "light chocolate (box) [x]",
+      "product_name": "Light Chocolate (Box) [X]",
+      "restock_qty": 254,
+      "current_stock": 17.0,
+      "target_stock": 271.5,
+      "demand_30d": 181.0,
+      "reason": "No donor stores available \u2014 order from supplier"
+    }
+  ]
+}

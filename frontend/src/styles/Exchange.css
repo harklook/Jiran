@@ -1,0 +1,1359 @@
+/* src/styles/Exchange.css */
+/* =========================================================
+   Exchange Page — Bright SaaS
+   Scoped to .exchange-page
+========================================================= */
+
+.retail-page .avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: #eef2f7;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.retail-page.exchange-page .exchange-layout {
+  padding: var(--pad);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background:
+    radial-gradient(1100px 720px at 18% 16%, #eef6ff 0%, transparent 60%),
+    radial-gradient(920px 650px at 82% 36%, #e9fbf6 0%, transparent 55%),
+    linear-gradient(to bottom, #f8fbff, #ffffff);
+}
+
+/* Hero centered */
+.retail-page.exchange-page .market-hero .market-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.retail-page.exchange-page .market-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.retail-page.exchange-page .market-sub {
+  margin-top: 8px;
+  color: var(--text-sub);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Main layout */
+.retail-page.exchange-page .market-layout {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  gap: 14px;
+  align-items: start;
+}
+
+.retail-page.exchange-page .market-main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.retail-page.exchange-page .market-side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.retail-page.exchange-page .side-panel {
+  position: sticky;
+  top: 12px;
+}
+
+.retail-page.exchange-page .side-kpi {
+  display: flex;
+  flex-direction: column; /* value on top, label below */
+  align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f7f6f6; /* adjust to your theme */
+  margin: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.retail-page.exchange-page .side-kpi-value {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.retail-page.exchange-page .side-kpi-label {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.retail-page.exchange-page .side-foot {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+/* =========================================================
+       Header + Buy/Sell tabs
+    ========================================================= */
+
+.retail-page.exchange-page .market-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.retail-page.exchange-page .market-tabs {
+  display: flex;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(248, 250, 252, 0.95);
+}
+
+.retail-page.exchange-page .tab {
+  border: 0;
+  background: transparent;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 900;
+  color: var(--text-sub);
+  cursor: pointer;
+}
+
+.retail-page.exchange-page .tab.active {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--text-main);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+}
+
+.retail-page.exchange-page .market-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =========================================================
+ Header + Buy/Sell tabs
+ ========================================================= */
+.retail-page.exchange-page .market-tabs {
+  display: flex;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.retail-page.exchange-page .tab {
+  width: 250px;
+  border: 0;
+  background: transparent;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 900;
+  color: var(--text-sub);
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    border-color 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease,
+    color 0.12s ease;
+}
+
+.retail-page.exchange-page .tab:hover {
+  transform: translateY(-1px);
+  background: rgba(37, 99, 235, 0.1);
+  box-shadow: 0 10px 18px #dce5fa14;
+}
+
+.retail-page.exchange-page .tab.active {.retail-page.exchange-page .subtab.active {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--text-main);
+  border-color: rgba(37, 99, 235, 0.22);
+  box-shadow:
+    0 0 0 1px rgba(37, 99, 235, 0.18),
+    0 0 14px rgba(37, 99, 235, 0.28),
+    0 6px 18px rgba(37, 99, 235, 0.18);
+}
+
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--text-main);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  box-shadow:
+    0 0 0 1px rgba(37, 99, 235, 0.18),
+    0 0 14px rgba(37, 99, 235, 0.28),
+    0 6px 18px rgba(37, 99, 235, 0.18);
+}
+
+
+
+/* Sub tabs */
+.retail-page.exchange-page .subtabs {
+  display: flex;
+  justify-content: stretch;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.1); 
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.retail-page.exchange-page .subtab {
+  flex: 1 1 200px;
+  padding: 10px 10px;
+  font-weight: 900;
+  color: var(--text-sub);
+  cursor: pointer;
+  border: 1px solid transparent; 
+  border-radius: 12px;
+  background: transparent;
+  transition:
+    transform 0.12s ease,
+    border-color 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease,
+    color 0.12s ease;
+}
+
+.retail-page.exchange-page .subtab:hover {
+  transform: translateY(-1px);
+  background: rgba(37, 99, 235, 0.1);
+
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+}
+
+.retail-page.exchange-page .subtab.active {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--text-main);
+  border-color: rgba(37, 99, 235, 0.22);
+}
+
+/* =========================================================
+       Blocks / page sections
+    ========================================================= */
+
+.retail-page.exchange-page .page-block {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  background: #f3f4f6; /* darker than inner card */
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+}
+
+.retail-page.exchange-page .block-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.retail-page.exchange-page .block-title {
+  font-weight: 900;
+  color: var(--text-main);
+  font-size: 16px;
+}
+
+.retail-page.exchange-page .block-sub {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+/* =========================================================
+       Tables
+    ========================================================= */
+
+.retail-page.exchange-page .market-main .panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.retail-page.exchange-page .ex-table {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.retail-page.exchange-page .exchange-scroll {
+  max-height: 460px;
+  overflow-y: auto;
+}
+
+.retail-page.exchange-page .exchange-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.retail-page.exchange-page .exchange-scroll::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.18);
+  border-radius: 6px;
+}
+
+.retail-page.exchange-page .ex-thead,
+.retail-page.exchange-page .ex-row {
+  display: grid;
+  grid-template-columns: 2.2fr 1.2fr 0.7fr 0.9fr 1fr; /* added column */
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  font-size: 14px;
+}
+
+.retail-page.exchange-page .ex-thead {
+  background: rgba(37, 99, 235, 0.06);
+  padding: 12px 14px;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--text-sub);
+}
+
+.retail-page.exchange-page .ex-row:last-child {
+  border-bottom: 0;
+}
+
+.retail-page.exchange-page .ex-prod {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.retail-page.exchange-page .thumb {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  font-size: x-large;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary), #22c55e);
+  opacity: 0.88;
+  /* border: 1px solid rgba(37, 99, 235, 0.20); */
+  flex: 0 0 auto;
+}
+
+.retail-page.exchange-page .ex-prod-text {
+  min-width: 0;
+}
+
+.retail-page.exchange-page .ex-prod-name {
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.retail-page.exchange-page .ex-prod-sub {
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+/* NEW: make "Updated:" / "Posted:" feel intentional */
+.retail-page.exchange-page .req-mini .req-note,
+.retail-page.exchange-page .ex-prod-sub {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* keep the date from stretching too wide */
+.retail-page.exchange-page .req-mini .req-note strong {
+  font-weight: 900;
+}
+
+/* Seller cell */
+.retail-page.exchange-page .seller-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+
+  gap: 8px;
+  min-width: 0;
+}
+
+.retail-page.exchange-page .seller-name {
+  font-weight: 900;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Available products table includes action column */
+.retail-page.exchange-page .ex-thead-market2,
+.retail-page.exchange-page .ex-row-market2 {
+  grid-template-columns: 2fr 1.2fr 0.7fr 0.9fr 0.6fr 0.5fr;
+}
+
+/* Manage my requests table */
+.retail-page.exchange-page .ex-thead-req2 {
+  display: grid;
+  grid-template-columns:
+    2.2fr
+    1.2fr
+    1.2fr /* location */
+    0.6fr
+    0.9fr
+    1fr;
+}
+.retail-page.exchange-page .ex-row-req2 {
+  display: grid;
+  grid-template-columns:
+    2.2fr /* request */
+    1.2fr /* seller */
+    1.2fr /* location */
+    0.6fr /* qty */
+    0.9fr /* status */
+    1fr; /* actions */
+  gap: 12px;
+  align-items: center;
+}
+
+/* Sell view requests table */
+.retail-page.exchange-page .ex-thead-sellreq,
+.retail-page.exchange-page .ex-row-sellreq {
+  grid-template-columns: 2.2fr 1.2fr 0.6fr 0.9fr 0.7fr;
+}
+
+/* Manage Listings: add actions column */
+.retail-page.exchange-page .ex-thead-manage,
+.retail-page.exchange-page .ex-row-manage {
+  grid-template-columns: 2.2fr 0.9fr 0.7fr 0.9fr 0.6fr;
+}
+
+.retail-page.exchange-page .manage-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Qty stack (available/claimed display) */
+.retail-page.exchange-page .qty-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.retail-page.exchange-page .qty-main {
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.retail-page.exchange-page .qty-sub {
+  font-size: 12px;
+}
+
+/* =========================================================
+       Row buttons
+    ========================================================= */
+
+.retail-page.exchange-page .rowbtn {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(248, 250, 252, 0.95);
+  color: var(--text-main);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-weight: 900;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform 0.12s ease,
+    border-color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.retail-page.exchange-page .rowbtn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(37, 99, 235, 0.22);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+}
+
+.retail-page.exchange-page .rowbtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* If you ever swap to aria-disabled instead of disabled */
+.retail-page.exchange-page .rowbtn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.retail-page.exchange-page .rowbtn.danger {
+  border-color: rgba(239, 68, 68, 0.25);
+  background: rgba(239, 68, 68, 0.07);
+  color: rgba(160, 30, 30, 0.95);
+}
+
+/* =========================================================
+       Request blocks
+    ========================================================= */
+
+.retail-page.exchange-page .req-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.retail-page.exchange-page .req-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.retail-page.exchange-page .req-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.retail-page.exchange-page .req-section-title {
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.retail-page.exchange-page .req-section-sub {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.retail-page.exchange-page .req-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.retail-page.exchange-page .req-product {
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.retail-page.exchange-page .req-mini-compact {
+  padding: 10px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(248, 250, 252, 0.92);
+}
+
+.retail-page.exchange-page .req-note {
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+/* Status stack */
+.retail-page.exchange-page .status-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+       Form
+    ========================================================= */
+
+.retail-page.exchange-page .form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.retail-page.exchange-page .buy-form {
+  margin-top: 12px;
+}
+
+.retail-page.exchange-page .field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.retail-page.exchange-page .span-2 {
+  grid-column: span 2;
+}
+
+.retail-page.exchange-page label {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-sub);
+}
+
+.retail-page.exchange-page .input {
+  font-size: 14px;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  outline: none;
+  color: var(--text-main);
+}
+
+.retail-page.exchange-page .input:focus {
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
+}
+
+.retail-page.exchange-page .input.invalid {
+  border-color: rgba(239, 68, 68, 0.45);
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.14);
+}
+
+.retail-page.exchange-page .inline-warn {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.1);
+  color: rgba(145, 90, 10, 0.95);
+  font-weight: 850;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.retail-page.exchange-page .form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* helper row */
+.retail-page.exchange-page .help-row {
+  margin-top: 6px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+       Pills / chips
+    ========================================================= */
+
+.retail-page.exchange-page .pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(248, 250, 252, 0.95);
+  color: var(--text-sub);
+  white-space: nowrap;
+}
+
+.retail-page.exchange-page .pill.subtle {
+  border-color: rgba(15, 23, 42, 0.1);
+  background: rgba(248, 250, 252, 0.85);
+}
+
+.retail-page.exchange-page .pill.pill-bad {
+  border-color: rgba(239, 68, 68, 0.28);
+  background: rgba(239, 68, 68, 0.08);
+  color: rgba(160, 30, 30, 0.95);
+}
+
+.retail-page.exchange-page .chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(248, 250, 252, 0.95);
+  color: var(--text-sub);
+  white-space: nowrap;
+}
+
+.retail-page.exchange-page .chip.ok {
+  border-color: rgba(34, 197, 94, 0.3);
+  background: rgba(34, 197, 94, 0.1);
+  color: rgba(20, 120, 70, 0.95);
+}
+
+.retail-page.exchange-page .chip.neutral {
+  border-color: rgba(15, 23, 42, 0.1);
+  background: rgba(148, 163, 184, 0.12);
+  color: rgba(71, 85, 105, 0.95);
+}
+
+.retail-page.exchange-page .chip.bad {
+  border-color: rgba(239, 68, 68, 0.28);
+  background: rgba(239, 68, 68, 0.08);
+  color: rgba(160, 30, 30, 0.95);
+}
+
+/* =========================================================
+       Hint row / empty / errors
+    ========================================================= */
+
+.retail-page.exchange-page .hint-row {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.retail-page.exchange-page .hint-text {
+  margin: 0;
+  color: var(--text-sub);
+  line-height: 1.35;
+}
+
+.retail-page.exchange-page .status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(248, 250, 252, 0.95);
+  color: var(--text-sub);
+  white-space: nowrap;
+}
+
+.retail-page.exchange-page .status.ok {
+  border-color: rgba(34, 197, 94, 0.3);
+  background: rgba(34, 197, 94, 0.1);
+  color: rgba(20, 120, 70, 0.95);
+}
+
+.retail-page.exchange-page .status.warn {
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.14);
+  color: rgba(145, 90, 10, 0.95);
+}
+
+.retail-page.exchange-page .muted {
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.retail-page.exchange-page .inline-error {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.08);
+  color: rgba(160, 30, 30, 0.95);
+  font-weight: 800;
+}
+
+.retail-page.exchange-page .empty {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px dashed rgba(15, 23, 42, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.retail-page.exchange-page .empty-title {
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.retail-page.exchange-page .empty-sub {
+  margin-top: 6px;
+  color: var(--text-sub);
+}
+
+/* =========================================================
+       Modal overlay + layout
+    ========================================================= */
+
+.retail-page.exchange-page .ex-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(2, 6, 23, 0.55);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.retail-page.exchange-page .ex-modal {
+  width: min(720px, 96vw);
+  max-height: calc(100vh - 36px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 30px 90px rgba(2, 6, 23, 0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.retail-page.exchange-page .ex-modal-wide {
+  width: min(820px, 96vw);
+}
+
+.retail-page.exchange-page .ex-modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.retail-page.exchange-page .ex-modal-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.retail-page.exchange-page .ex-modal-sub {
+  margin-top: 6px;
+  color: var(--text-sub);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.retail-page.exchange-page .iconbtn {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(248, 250, 252, 0.95);
+  color: var(--text-main);
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.retail-page.exchange-page .ex-modal-body {
+  padding: 18px;
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.retail-page.exchange-page .ex-modal-actions {
+  padding: 14px 18px 18px;
+  border-top: 1px solid rgba(15, 23, 42, 0.1);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-height: 760px) {
+  .retail-page.exchange-page .ex-overlay {
+    padding: 12px;
+  }
+
+  .retail-page.exchange-page .ex-modal {
+    max-height: calc(100vh - 24px);
+  }
+
+  .retail-page.exchange-page .ex-modal-head,
+  .retail-page.exchange-page .ex-modal-body,
+  .retail-page.exchange-page .ex-modal-actions {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+/* Buy card */
+.retail-page.exchange-page .buy-card {
+  border-radius: 18px;
+  background: #ffffff; /* lighter than outer card */
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.retail-page.exchange-page .buy-title {
+  font-weight: 900;
+  color: var(--text-main);
+  font-size: 16px;
+}
+
+.retail-page.exchange-page .buy-sub {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+/* Contact modal */
+.retail-page.exchange-page .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.retail-page.exchange-page .contact-card {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 16px;
+  background: rgba(248, 250, 252, 0.95);
+  padding: 14px;
+}
+
+.retail-page.exchange-page .contact-card.span2 {
+  grid-column: span 2;
+}
+
+.retail-page.exchange-page .contact-label {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--text-sub);
+}
+
+.retail-page.exchange-page .contact-value {
+  margin-top: 8px;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.retail-page.exchange-page .contact-link {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.retail-page.exchange-page .contact-link:hover {
+  color: var(--primary-hover);
+}
+
+.retail-page.exchange-page .contact-help {
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+/* Inventory picker dropdown */
+.retail-page.exchange-page .combo {
+  position: relative;
+  width: 100%;
+}
+
+.retail-page.exchange-page .combo.disabled {
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.retail-page.exchange-page .combo-input {
+  width: 100%;
+}
+
+.retail-page.exchange-page .combo-pop {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+
+  z-index: 50;
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 24px 70px rgba(2, 6, 23, 0.18);
+  overflow: hidden;
+
+  max-height: 320px;
+  overflow: auto;
+}
+
+.retail-page.exchange-page .combo-pop::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  background: rgba(255, 255, 255, 0.98);
+  border-left: 1px solid rgba(15, 23, 42, 0.1);
+  border-top: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.retail-page.exchange-page .combo-empty {
+  padding: 12px 12px;
+  color: var(--text-sub);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.retail-page.exchange-page .combo-item {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 12px 12px;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  transition:
+    background 0.12s ease,
+    transform 0.12s ease;
+}
+
+.retail-page.exchange-page .combo-item:first-child {
+  border-top: 0;
+}
+
+.retail-page.exchange-page .combo-item:hover {
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.retail-page.exchange-page .combo-item:active {
+  transform: scale(0.997);
+}
+
+.retail-page.exchange-page .combo-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.retail-page.exchange-page .combo-name {
+  font-weight: 900;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.retail-page.exchange-page .combo-sub {
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.retail-page.exchange-page .combo-meta {
+  flex: 0 0 auto;
+}
+
+.retail-page.exchange-page .combo-pop::-webkit-scrollbar {
+  width: 8px;
+}
+
+.retail-page.exchange-page .combo-pop::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.18);
+  border-radius: 999px;
+}
+
+/* Sidebar stack */
+.retail-page.exchange-page .side-kpis {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+/* Center only the refresh row */
+.retail-page.exchange-page .kpi-refresh {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+/* Refresh button */
+.retail-page.exchange-page .refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  min-height: 44px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(248, 250, 252, 0.95);
+  color: var(--text-main);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.retail-page.exchange-page .refresh-btn:hover {
+  background: rgba(216, 232, 248, 0.95);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+}
+
+/* KPI cards fill sidebar width again */
+.retail-page.exchange-page .side-kpi {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+       Responsive
+    ========================================================= */
+
+@media (max-width: 1100px) {
+  .retail-page.exchange-page .nav {
+    display: none;
+  }
+
+  .retail-page.exchange-page .market-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .retail-page.exchange-page .side-panel {
+    position: static;
+  }
+
+  .retail-page.exchange-page .form {
+    grid-template-columns: 1fr;
+  }
+
+  .retail-page.exchange-page .span-2 {
+    grid-column: auto;
+  }
+
+  .retail-page.exchange-page .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .retail-page.exchange-page .contact-card.span2 {
+    grid-column: auto;
+  }
+
+  .retail-page.exchange-page .req-section-head {
+    flex-wrap: wrap;
+  }
+
+  .retail-page.exchange-page .req-section-sub {
+    margin-left: 0;
+    flex-basis: 100%;
+  }
+
+  .retail-page.exchange-page .market-meta {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 560px) {
+  .retail-page.exchange-page .ex-thead,
+  .retail-page.exchange-page .ex-thead > :nth-child(n + 3),
+  .retail-page.exchange-page .ex-row > :nth-child(n + 3) {
+    display: none;
+  }
+
+  .retail-page.exchange-page .ex-thead-manage,
+  .retail-page.exchange-page .ex-row-manage {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .retail-page.exchange-page .subtabs {
+    gap: 8px;
+  }
+}
+
+.retail-page.exchange-page .ex-prod-sub {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.retail-page.exchange-page .ex-prod-sub .sku {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+}
+
+.retail-page.exchange-page .ex-prod-sub .meta {
+  white-space: nowrap;
+}
+
+/* ===============================
+   Search panels (Buy & Sell)
+================================ */
+.buy-search-panel,
+.sell-search-panel {
+  margin-bottom: 16px;
+}
+
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+/* ===============================
+   SearchableSelect dropdown
+================================ */
+.combo {
+  position: relative;
+}
+
+.combo-input {
+  width: 100%;
+}
+
+.combo-pop {
+  position: absolute;
+  z-index: 20;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 4px;
+  max-height: 220px;
+  overflow-y: auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.combo-item {
+  padding: 8px 10px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.combo-item:hover {
+  background: #f5f7fa;
+}
+
+.combo-empty {
+  padding: 10px;
+  color: #888;
+  font-size: 13px;
+}
+
+/* ===============================
+   Highlighted text
+================================ */
+.highlight {
+  background-color: rgba(255, 214, 0, 0.35);
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+/* Hero tighter */
+.retail-page.exchange-page .market-hero {
+  padding: 20px 24px;
+}
+
+.retail-page.exchange-page .market-title {
+  font-size: 22px;
+}
+
+.retail-page.exchange-page .market-sub {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+/* Main cards stronger */
+.retail-page.exchange-page .page-block,
+.retail-page.exchange-page .buy-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+}
+
+/* Sidebar nicer */
+.retail-page.exchange-page .side-panel {
+  top: 12px;
+  background: #f3f4f6; /* outer card darker */
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.retail-page.exchange-page .side-kpi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: #ffffff; /* inner card lighter */
+  margin: 0;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  box-sizing: border-box;
+}
+
+.retail-page.exchange-page .side-kpi-value {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.retail-page.exchange-page .side-kpi-label {
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.75;
+}
+
+/* Inputs cleaner */
+.retail-page.exchange-page .input {
+  background: #fcfdff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+/* Layout slightly tighter */
+.retail-page.exchange-page .exchange-layout,
+.retail-page.exchange-page .market-layout,
+.retail-page.exchange-page .market-main {
+  gap: 12px;
+}

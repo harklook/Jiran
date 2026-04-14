@@ -1,0 +1,28 @@
+/* src/index.css — GLOBAL ONLY (neutral) */
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  /* IMPORTANT: do NOT center the whole app globally */
+  display: block;
+
+  /* keep it neutral */
+  background: #ffffff;
+  color: #0b0f14;
+}
