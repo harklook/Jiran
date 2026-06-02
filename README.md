@@ -140,3 +140,196 @@ Jiran/
     ├── saved_models/
     ├── requirements.txt
     └── .env.example
+```
+
+---
+
+## Prerequisites
+
+| Tool | Minimum Version | Install |
+|---|---:|---|
+| Python | 3.9+ | https://python.org |
+| Node.js | 18+ | https://nodejs.org |
+
+---
+
+## Environment Setup
+
+This project uses local environment variables.
+
+Real `.env` files are intentionally not committed to version control. Use `.env.example` files as templates.
+
+### 1. Copy the example environment files
+
+```bash
+cp frontend/.env.example frontend/.env
+cp ml_backend/.env.example ml_backend/.env
+```
+
+### 2. Fill in the required local values
+
+Example frontend variables may include:
+
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_API_BASE_URL=http://localhost:8001
+```
+
+Example backend variables may include:
+
+```env
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_if_required
+```
+
+> **Security Note:** Do not commit real API keys, credentials, access tokens, database URLs, or service role keys to GitHub.
+
+---
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/harklook/Jiran.git
+cd Jiran
+```
+
+### 2. Start the project
+
+```bash
+./start.sh
+```
+
+The startup script will:
+
+- install Python and Node dependencies on first run,
+- start the ML backend on `http://localhost:8001`, and
+- start the frontend on `http://localhost:5173`.
+
+Press `Ctrl+C` to stop both services.
+
+---
+
+## ML API Reference
+
+**Base URL:** `http://localhost:8001`  
+**Interactive Docs:** `http://localhost:8001/docs`
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/` | Health check |
+| POST | `/predict-stock` | Predict stock status for products |
+| POST | `/recommend` | Generate predictions and transfer/restock recommendations |
+| GET | `/feature-importance` | Return top model features |
+
+---
+
+## Data and Integration Notes
+
+Jiran supports manual inventory imports and POS integration workflows. The platform is designed to work with structured sales and stock data, and the AI-assisted features rely on historical inventory and transaction records to generate useful predictions and recommendations.
+
+Square POS was used for the prototype implementation. Additional POS and e-commerce integrations were considered as part of the broader system design.
+
+---
+
+## Security Considerations
+
+Jiran includes several security-related design considerations:
+
+- Supabase Authentication for user login and account access,
+- role-based access control considerations,
+- protected application routes,
+- environment variable and secret management,
+- API validation considerations,
+- retailer data privacy and access control,
+- multi-tenant data protection considerations, and
+- secure handling of POS/API integration credentials.
+
+Environment variables and API keys should be stored locally in `.env` files and should not be committed to version control.
+
+---
+
+## My Role
+
+Originated the concept for Jiran and co-developed it with my capstone team from idea to working prototype.
+
+Contributed across:
+
+- product planning,
+- feature planning,
+- user flows,
+- system design,
+- frontend development,
+- backend integration,
+- database workflows,
+- API/POS integration,
+- inventory workflows,
+- marketplace features,
+- analytics functionality,
+- recommendation logic,
+- testing and debugging,
+- technical documentation,
+- presentation, and
+- security-related system considerations.
+
+---
+
+## Troubleshooting
+
+### ML models missing
+
+```bash
+cd ml_backend && python3 train.py
+```
+
+### Port already in use
+
+```bash
+lsof -ti:8001 | xargs kill -9
+lsof -ti:5173 | xargs kill -9
+```
+
+### npm install fails on macOS
+
+```bash
+xattr -cr frontend/
+rm -rf frontend/node_modules
+cd frontend && npm install
+```
+
+---
+
+## Project Status and Limitations
+
+Jiran is an academic capstone prototype focused on inventory optimization, forecasting, and retailer collaboration.
+
+The current scope emphasizes:
+
+- inventory operations,
+- AI-assisted recommendations,
+- stock classification,
+- stock exchange workflows,
+- dashboard-based insights, and
+- prototype-level POS/data integration.
+
+Current limitations include:
+
+- prototype-level POS integration,
+- no full payment gateway in the MVP,
+- no mobile app in the MVP,
+- some workflows simplified for academic demonstration,
+- regional focus on UAE/GCC retail use cases, and
+- prototype/demo data used in some scenarios.
+
+Jiran is not a full ERP replacement. It is designed to demonstrate how lightweight inventory intelligence and retailer-to-retailer stock redistribution can support small and mid-sized retailers.
+
+---
+
+## Capstone Context
+
+Developed as a CSIT321 capstone startup-style project by Team OSCORP/Jiran at the University of Wollongong in Dubai.
+
+The project was built to demonstrate real-world business potential through a working prototype, technical documentation, testing, and product presentation.
