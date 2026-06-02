@@ -78,15 +78,13 @@ Jiran/
 ├── README.md
 ├── frontend/                  # React + Vite frontend (port 5173)
 │   ├── src/
-│   ├── package.json
-│   └── .env
+│   └── package.json
 └── ml_backend/                # FastAPI ML service (port 8001)
     ├── app.py
     ├── supabase_watcher.py
     ├── train.py
     ├── saved_models/
-    ├── requirements.txt
-    └── .env
+    └── requirements.txt
 ```
 
 ## Core Workflows
